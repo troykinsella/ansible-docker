@@ -1,4 +1,5 @@
 ---
+dependencies: []
 galaxy_info:
   author: Troy Kinsella
   description: Docker allows you to package an application with all of its dependencies into a standardized unit for software development.
@@ -12,5 +13,4 @@ galaxy_info:
     - wily
   galaxy_tags:
     - packaging
-  dependencies: []
   github_branch: master
