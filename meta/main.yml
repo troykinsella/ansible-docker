@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Troy Kinsella
+  description: Docker allows you to package an application with all of its dependencies into a standardized unit for software development.
+  license: MIT
+  min_ansible_version: 1.2
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+    - vivid
+    - wily
+  categories:
+  - packaging
+  github_branch: master
