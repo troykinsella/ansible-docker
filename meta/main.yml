@@ -10,7 +10,7 @@ galaxy_info:
     - trusty
     - vivid
     - wily
-  categories:
-  - packaging
+  galaxy_tags:
+    - packaging
   dependencies: []
   github_branch: master
