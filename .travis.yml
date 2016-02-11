@@ -3,7 +3,6 @@ language: python
 python: "2.7"
 
 before_install:
-  # Make sure everything's up to date.
   - sudo apt-get update -qq
 
 install:
@@ -11,14 +10,24 @@ install:
   - pip install ansible
 
   # Add ansible.cfg to pick up roles path.
-  - 'echo -e "[defaults]\nroles_path = ../\n" > ansible.cfg'
+  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
 script:
-#  - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
+  # Check the role/playbook's syntax.
+  - "ansible-playbook -i tests/inventory tests/test --syntax-check"
+
+  # Run the role/playbook with ansible-playbook.
+  - "ansible-playbook -i tests/inventory tests/test --connection=local --sudo"
+
+  # Travis CI's environment requires one _extra_ run for true idempotence :-/.
+  - "ansible-playbook -i tests/inventory tests/test --connection=local --sudo"
+
+  # Run the role/playbook again, checking to make sure it's idempotent.
   - >
-    ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo
+    ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
+
 notifications:
     webhooks: https://galaxy.ansible.com/api/v1/notifications/
