@@ -14,7 +14,7 @@ install:
   - "echo -e 'roles_path = ../\n' > ansible.cfg"
 
 script:
-  - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
+#  - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
   - >
     ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo
     | grep -q 'changed=0.*failed=0'
