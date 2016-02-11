@@ -1,23 +1,23 @@
 ---
-- name: docker | add apt key
+- name: add apt key
   apt_key:
     keyserver: "hkp://p80.pool.sks-keyservers.net:80"
     id: "58118E89F3A912897C070ADBF76221572C52609D"
     state: present
   tags: docker
 
-- name: docker | check distribution release
+- name: check distribution release
   fail:
     msg: "ubuntu distribution release not supported: {{ ansible_distribution_release }}"
   when: "ansible_distribution_release not in ['trusty', 'vivid', 'wily']"
 
-- name: docker | add apt repository
+- name: add apt repository
   apt_repository:
     repo: "deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main"
     state: present
   tags: docker
 
-- name: docker | install package
+- name: install package
   apt:
     pkg: docker-engine
     state: latest
