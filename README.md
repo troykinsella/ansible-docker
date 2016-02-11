@@ -1,7 +1,7 @@
 troykinsella.docker
 ===================
 
-Installs Docker as per the instructions listed here: https://docs.docker.com/engine/installation/linux/ubuntulinux/
+An ansible role that installs Docker as per the instructions listed here: https://docs.docker.com/engine/installation/linux/ubuntulinux/
 
 Example Playbook
 ----------------
