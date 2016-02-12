@@ -13,10 +13,6 @@ install:
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
 script:
-  - "ls -R"
-
-  - "ls -R .."
-
   # Check the role/playbook's syntax.
   - "ansible-playbook -i tests/inventory tests/test.yml --syntax-check || exit 1"
 
