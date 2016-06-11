@@ -20,6 +20,7 @@ Ubuntu:
 * trusty
 * vivid
 * wily
+* xenial
 
 License
 -------

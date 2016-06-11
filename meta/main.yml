@@ -11,6 +11,8 @@ galaxy_info:
     - trusty
     - vivid
     - wily
+    - xenial
   galaxy_tags:
+    - docker
     - packaging
   github_branch: master
