@@ -1,0 +1,10 @@
+---
+
+- name: configure remote api
+  become: yes
+  template:
+    src: startup_options.conf.j2
+    dest: "{{ docker_systemd_startup_options_conf_path }}"
+  notify:
+  - docker | service restarted
+  when: docker_enable_remote_api

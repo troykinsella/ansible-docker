@@ -1,0 +1,5 @@
+# /etc/systemd/system/docker.service.d/override.conf
+# {{ ansible_managed }}
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:{{ docker_bind_port }}
