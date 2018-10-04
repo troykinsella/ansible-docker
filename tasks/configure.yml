@@ -1,10 +1,25 @@
 ---
+- name: create systemd docker service.d directory
+  become: yes
+  file:
+    state: directory
+    path: "{{ docker_systemd_service_d_path }}"
+  when: docker_enable_remote_api
 
 - name: configure remote api
   become: yes
   template:
     src: startup_options.conf.j2
-    dest: "{{ docker_systemd_startup_options_conf_path }}"
+    dest: "{{ docker_systemd_service_d_path }}/{{ docker_systemd_startup_options_conf }}"
+  register: startup_options
   notify:
   - docker | service restarted
   when: docker_enable_remote_api
+
+- name: systemd reload daemon
+  become: yes
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: docker
+  when: startup_options is changed

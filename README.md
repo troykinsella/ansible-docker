@@ -15,9 +15,10 @@ See `defaults/main.yml` for default values.
 * `docker_gpg_key_fingerprint`: Optional. The GPG key fingerprint for the docker 
   apt repository.
 * `docker_package_name`: Optional. The name of the docker apt package to install.
-* `docker_systemd_startup_options_conf_path`: Optional. The path to the 
-  systemd `startup_options.conf` to be managed when `docker_enable_remote_api` 
-  is `yes`.
+* `docker_systemd_service_d_path`. Optional. The path to the systemd docker.service.d directory.
+* `docker_systemd_startup_options_conf`: Optional. The name of the
+  config file to generate in `docker_systemd_service_d_path` when 
+  `docker_enable_remote_api` is `yes`.
 * `docker_enable_remote_api`: Optional. Boolean. Configure the docker remote API. 
 * `docker_bind_port`: Optional. The port on which the docker daemon should listen when 
   `docker_enable_remote_api` is `yes`.

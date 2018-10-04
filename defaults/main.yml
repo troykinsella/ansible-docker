@@ -3,6 +3,7 @@ docker_repository_url: https://download.docker.com/linux/ubuntu
 docker_gpg_key_fingerprint: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
 docker_package_name: docker-ce
 
-docker_systemd_startup_options_conf_path: /etc/systemd/system/docker.service.d/startup_options.conf
+docker_systemd_service_d_path: /etc/systemd/system/docker.service.d
+docker_systemd_startup_options_conf: startup_options.conf
 docker_enable_remote_api: no
 docker_bind_port: 2376
