@@ -19,7 +19,5 @@
 - name: systemd reload daemon
   become: yes
   systemd:
-    state: restarted
     daemon_reload: yes
-    name: docker
   when: startup_options is changed
