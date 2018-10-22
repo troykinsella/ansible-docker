@@ -1,20 +1,24 @@
 ---
 - name: docker | service started
+  become: yes
   service:
     name: docker
     state: started
 
 - name: docker | service reloaded
+  become: yes
   service:
     name: docker
     state: reloaded
 
 - name: docker | service stopped
+  become: yes
   service:
     name: docker
     state: stopped
 
 - name: docker | service restarted
+  become: yes
   service:
     name: docker
     state: restarted
