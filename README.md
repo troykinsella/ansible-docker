@@ -1,5 +1,4 @@
-troykinsella.docker
-===================
+# troykinsella.docker
 
 [![Build Status][travis-image]][travis-url]
 
@@ -37,6 +36,20 @@ Ubuntu:
 * trusty
 * xenial
 * bionic
+
+## Testing
+
+Prerequisites:
+* `docker`
+* `ruby` > 2.3
+* `bundler`
+
+Test:
+
+```bash
+bundle install
+bundle exec kitchen test
+```
 
 ## License
 
