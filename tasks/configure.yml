@@ -21,3 +21,11 @@
   systemd:
     daemon_reload: yes
   when: startup_options is changed
+
+- name: add users to docker group
+  become: yes
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: yes
+  loop: "{{ docker_group_members }}"

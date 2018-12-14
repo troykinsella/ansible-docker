@@ -21,6 +21,7 @@ See `defaults/main.yml` for default values.
 * `docker_enable_remote_api`: Optional. Boolean. Configure the docker remote API. 
 * `docker_bind_port`: Optional. The port on which the docker daemon should listen when 
   `docker_enable_remote_api` is `yes`.
+* `docker_group_members`: Optional. A list of users to make members of the `docker` group.
 
 ## Example Playbook
 
