@@ -1,9 +1,4 @@
 ---
-- name: check distribution release
-  fail:
-    msg: "ubuntu distribution release not supported: {{ ansible_distribution_release }}"
-  when: "ansible_distribution_release not in ['trusty', 'xenial', 'bionic']"
-
 - name: add apt key
   become: yes
   apt_key:

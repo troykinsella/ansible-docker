@@ -1,11 +1,8 @@
 ---
 services: docker
 
-install:
-- bundle install
-
 script:
-- bundle exec kitchen test
+- bundle install
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
